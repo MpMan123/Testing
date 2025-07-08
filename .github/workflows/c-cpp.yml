@@ -1,23 +1,25 @@
-name: C/C++ CI tester
+name: C++ CI
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
+on:                # Khi nào chạy?
+  push:   { branches: [ "main" ] }
+  pull_request:    # check luôn PR
     branches: [ "main" ]
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest         # máy ảo GitHub cấp
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - uses: actions/checkout@v4    # 1. clone code
+    - name: Set up C++ toolchain
+      uses: aminya/setup-cpp@v2    # 2. cài compiler g++/clang
+      with:
+        compiler: g++-13           # chọn phiên bản mới nhất 
+    - name: Build
+      run: g++ -std=c++17 -Wall -Wextra main.cpp -o main
+    - name: Run program
+      run: ./main                  # in ra “Hello Actions!”
+    - name: Upload binary          # (tuỳ) tải file build về
+      uses: actions/upload-artifact@v4
+      with:
+        name: mini-cpp-exe
+        path: main
