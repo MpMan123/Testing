@@ -6,4 +6,5 @@ int main() {
         cout << i << " ";
     }
     cout << endl << "Nhanh1\n";
+    cout << "Main vua cap nhat\n";
 }
