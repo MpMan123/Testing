@@ -6,4 +6,7 @@ int main() {
         cout << i << " ";
     }
     cout << endl << "Nhanh1\n";
+    for (int i = 0; i < 5; ++i) {
+        cout << "hello\n";
+    }
 }
