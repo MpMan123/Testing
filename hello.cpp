@@ -7,4 +7,7 @@ int main() {
     }
     cout << endl << "Nhanh1\n";
     cout << "Main vua cap nhat\n";
+    for (int i = 0; i < 5; ++i) {
+        cout << "hello\n";
+    }
 }
