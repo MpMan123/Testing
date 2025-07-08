@@ -16,7 +16,7 @@ jobs:
         arch: x64
 
     - name: Compile run.exe
-      run: g++ run.cpp -std=c++17 -o run.exe
+      run: g++ hello.cpp -std=c++17 -o run.exe
 
     - name: Run run.exe
       run: .\run.exe
